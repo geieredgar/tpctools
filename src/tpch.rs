@@ -104,13 +104,6 @@ impl Tpc for TpcH {
                 fs::create_dir(&output_dir)?;
             }
 
-            let filename = format!("{}/{}.tbl", generator_path, table);
-            let filename2 = format!("{}/part-0.dat", output_dir);
-            if Path::new(&filename).exists() {
-                println!("mv {} {}", filename, filename2);
-                fs::rename(filename, filename2)?;
-            }
-
             if partitions == 1 {
                 let filename = format!("{}/{}.tbl", generator_path, table);
                 let filename2 = format!("{}/part-0.tbl", output_dir);
